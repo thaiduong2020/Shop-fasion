@@ -8,12 +8,11 @@ class Bill_detail extends Model
 {
     protected $table = 'bill_detail';
 
-    public function product(){ 
-        return $this->belongTo('App\Product','id_products','id');
+    public function product(){
+        return $this->belongsTo('App\Product','id_products','id');
+    }
+    public function bills(){
+        return $this->belongsTo('App\Bills','id_bill','id');
+    }
 
-        
-    }
-    public function bills(){ 
-        return $this->belongTo('App\Bill','id_bill','id');
-    }
 }

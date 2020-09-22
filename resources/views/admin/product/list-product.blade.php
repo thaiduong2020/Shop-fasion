@@ -22,6 +22,7 @@
     <thead>
         <th>ID</th>
         <th>Thể loại</th>
+        <th>Loại sản phẩm</th>
         <th>Tên sản phẩm</th>
         <th>mô tả</th>
         <th>Giá sản phẩm</th>
@@ -33,6 +34,7 @@
 
         <tr>
           <th scope="row">{{ $item->id }}</th >
+            <td>{{ $item->theloai->name }}</td>
             <td>{{ $item->type_product->name }}</td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->description }}</td>

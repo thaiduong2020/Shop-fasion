@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Type_product;
+use App\Theloai;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class CategoryController extends Controller
     }
 
     public function getCreate(){
-        return view('admin.category.add-category');
+        $theloai = Theloai::all();
+        return view('admin.category.add-category',['theloai' => $theloai]);
     }
 
     public function postCreate(Request $request){
@@ -27,6 +29,7 @@ class CategoryController extends Controller
        
     );
     $type = new Type_product;
+    $type->id_theloai = $request->id_theloai;
     $type->name =  $request->name;
     $type->save();
     return redirect('admin/add-category')->with('thongbao', 'Thêm mới thành công');

@@ -24,7 +24,19 @@
     <div class="card-body">
       <form method="POST" action="{{ route('postEdit-danhmuc', ['id' => $type->id]) }}" >
         @csrf
-     
+        <div class="form-group">
+          <label for="">Thể loại</label>
+          <select class="form-control" name="id_theloai" id="">
+            @foreach ($theloai as $item)
+                <option @if ($type->id_theloai == $item->id)
+                          {{ "selected" }}                       
+                        @endif
+                value="{{ $item->id }}">
+                  {{ $item->name }}
+                </option>
+            @endforeach
+          </select>
+        </div>
           <div class="form-group">
               <label for="exampleInputPassword1">Tên loại sản phẩm mới</label>
               <input type="text" class="form-control" value="{{ $type->name }}"  name="name" placeholder="tên sản phẩm mới">

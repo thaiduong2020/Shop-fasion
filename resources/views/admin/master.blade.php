@@ -15,7 +15,7 @@
     <style>
        .pagination {
         margin-left: 42%;
-        
+
         }
         .page-item.active .page-link{
             background-color: #343a40;
@@ -30,12 +30,14 @@
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
             <ul class="navbar-nav ml-auto">
-                
+
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fa fa-bars" aria-hidden="true"></i>
                     </a>
                 </li>
-               
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="{{ route('admin') }}" class="nav-link">Home</a>
+                </li>
                 @guest
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -80,7 +82,7 @@
             </form>
 
             <!-- Right navbar links -->
-           
+
         </nav>
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
@@ -108,10 +110,35 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                       
+                        <li class="nav-item has-treeview show1">
+                            <a href="#" class="nav-link ">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    <i class="fa fa-window-maximize" aria-hidden="true"></i>
+                                    Thể loại
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview showw1" style="display: none;">
+                                <li class="nav-item">
+                                    <a href="{{ route('list-theloai') }}" class="nav-link">
+                                        <p>Danh sách </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('getAdd-theloai') }}" class="nav-link ">
+                                        <p>Thêm mới </p>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+
                         <li class="nav-item has-treeview  show1">
                             <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
+                                    <i class="fa fa-window-maximize" aria-hidden="true"></i>
                                     Loại sản phẩm
                                 </p>
                             </a>
@@ -126,14 +153,16 @@
                                         <p>Thêm mới </p>
                                     </a>
                                 </li>
-                               
+
                             </ul>
                         </li>
 
 
                         <li class="nav-item has-treeview  show1">
                             <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
+                                    <i class="fa fa-window-maximize" aria-hidden="true"></i>
                                     Sản phẩm
                                 </p>
                             </a>
@@ -148,19 +177,38 @@
                                         <p>Thêm mới </p>
                                     </a>
                                 </li>
-                               
+
                             </ul>
                         </li>
 
                         <li class="nav-item has-treeview  show1">
                             <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
+                                    <i class="fa fa-window-maximize" aria-hidden="true"></i>
                                     Người dùng
                                 </p>
                             </a>
                             <ul class="nav nav-treeview showw1" style="display: none;">
                                 <li class="nav-item">
                                     <a href="{{ route('list-user') }}" class="nav-link ">
+                                        <p>Danh sách </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item has-treeview  show1">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    <i class="fa fa-window-maximize" aria-hidden="true"></i>
+                                    Đơn hàng
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview showw1" style="display: none;">
+                                <li class="nav-item">
+                                    <a href="{{ route('list-bill') }}" class="nav-link ">
                                         <p>Danh sách </p>
                                     </a>
                                 </li>
@@ -180,9 +228,9 @@
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                      
+
                         <!-- /.col -->
-                        
+
                         <!-- /.col -->
                     </div>
                     <!-- /.row -->
@@ -194,13 +242,13 @@
             <!-- Main content -->
             <section class="content">
                 @yield('content')
-                
+
             </section>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-           
+
         </footer>
 
         <!-- Control Sidebar -->
@@ -220,7 +268,7 @@
         $.widget.bridge('uibutton', $.ui.button)
     </script>
     <script src="{{ asset('js/adminlte.js') }}"></script>
-    <script> 
+    <script>
         CKEDITOR.replace('editor1');
     </script>
 </body>

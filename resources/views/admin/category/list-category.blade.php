@@ -31,6 +31,7 @@
 
         <tr>
           <th scope="row">{{ $item->id }}</th >
+            <td>{{ $item->theloai->name }}</td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->created_at }}</td>
             <td> 
