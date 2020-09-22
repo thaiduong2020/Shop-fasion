@@ -13,6 +13,6 @@ class Type_product extends Model
     }
 
     public function theloai(){ 
-        return $this->belongsto('App\Theloai','id_theloai','id');
+        return $this->belongsto(');
     }
 }
