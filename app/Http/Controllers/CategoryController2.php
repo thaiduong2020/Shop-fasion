@@ -44,10 +44,11 @@ class CategoryController extends Controller
             'name.required' => 'Vui lòng nhập tên thể loại',
             'name.unique' => 'Tên loại tin này đã có. xin vui lòng nhập tên khác'
         ]);
-
-        $type = Type_product::find($id);
-        $type->id_theloai = $request->id_theloai;
-        $type->name = $request->name;
+        $type = Type_product::updateOrCreate($id,[
+            $type->id_theloai = $request->id_theloai;
+            $type->name = $request->name;
+        ]);
+        
         $type->save();
 
         return redirect('admin/edit-category/'.$type->id)->with('thongbao', 'Cập nhật thành công');

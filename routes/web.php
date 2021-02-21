@@ -35,7 +35,6 @@ Route::post('check-out', 'CartController@postCheckout')->name('postCheckout');
 
 //Backend
 
-Route::middleware('auth')->group(function(){
     Route::get('/admin', 'HomeController@home')->name('admin');
     Route::group(['prefix' => 'admin'], function () {
 
@@ -84,7 +83,6 @@ Route::middleware('auth')->group(function(){
 
 
     });
-});
 Auth::routes();
 
 Route::get('/home', 'HomeController@home')->name('home');
